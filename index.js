@@ -1,13 +1,25 @@
 // const inputEl = +prompt("enter the numbers of square divs you need");
 // console.log(inputEl);
 // Grid Configuration
-const gridSize = 10; // Change this for different grid sizes
-const squareSize = 40; // Fixed size for each square
+// const gridSize = 5; // Change this for different grid sizes
+// const squareSize = 40; // Fixed size for each square
 const container = document.querySelector(".padText");
 const buttons = document.querySelector(".buttons");
-// Set container size dynamically
-container.style.width = `${gridSize * squareSize}px`;
-container.style.height = `${gridSize * squareSize}px`;
+const SelectBtn = document.querySelector(".select");
+let gridSize, squareSize;
+
+SelectBtn.addEventListener("click", function () {
+  container.innerHTML = "";
+  gridSize = +prompt("ENTER THE GRIDSIZE:");
+  squareSize = +prompt("ENTER THE SQUARESIZE:");
+  if (gridSize <= 0 || squareSize <= 0) {
+    alert("Please enter a positive number greater than 0");
+  } else {
+    // Set container size dynamically
+    container.style.width = `${gridSize * squareSize}px`;
+    container.style.height = `${gridSize * squareSize}px`;
+  }
+});
 
 buttons.addEventListener("click", function (e) {
   e.preventDefault();
